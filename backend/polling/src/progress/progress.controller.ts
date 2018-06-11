@@ -5,7 +5,7 @@ interface ProgressUpdate {
     done: boolean;
 }
 
-@Controller('progress')
+@Controller('api/progress')
 export class ProgressController {
     percentage = 0;
 
@@ -18,8 +18,9 @@ export class ProgressController {
         }
     }
 
-    @Get()
-    reset(): void {
+    @Get('reset')
+    reset(): string {
         this.percentage = 0;
+        return 'reset the percentage';
     }
 }
